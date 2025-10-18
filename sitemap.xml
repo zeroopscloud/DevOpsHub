@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://USERNAME.github.io/</loc><priority>1</priority></url>
+  <url><loc>https://USERNAME.github.io/#about</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#linux</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#aws</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#git</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#jenkins</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#docker</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#k8s</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#cicd</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#devsecops</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#terraform</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#common</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#sysdesign</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#contact</loc><priority>0.6</priority></url>
+</urlset>
