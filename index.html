@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevOps Q & A Hub</title>
+  <meta name="description" content="Daily-updated DevOps interview questions and concise bullet-point answers. Cyber-blue neon theme." />
+  <meta name="keywords" content="DevOps, interview, Kubernetes, Docker, AWS, Terraform, CI/CD, cyber, neon" />
+
+  <!-- Use relative paths (no leading slash) so files load correctly when hosted -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/images/zeroops.jpg" />
+
+  <!-- JSON-LD basic site info -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"DevOps Interview Hub",
+    "url":"https://USERNAME.github.io/",
+    "description":"Daily DevOps interview questions and bullet-point answers."
+  }
+  </script>
+</head>
+<body class="dark">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/images/zeroops.jpg" alt="DevOps Interview Hub Logo" class="logo-img" height="48">
+        <h1 class="site-title">ZeroOps</h1>
+      </div>
+
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#linux">Linux</a>
+        <a href="#aws">AWS</a>
+        <a href="#git">Git</a>
+        <a href="#jenkins">Jenkins</a>
+        <a href="#docker">Docker</a>
+        <a href="#k8s">Kubernetes</a>
+        <a href="#cicd">CI/CD</a>
+        <a href="#devsecops">DevSecOps</a>
+        <a href="#terraform">Terraform</a>
+        <a href="#common">Generic DevOps Questions</a>
+        <a href="#sysdesign">System Design</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section about neon-card">
+      <div class="about-inner">
+        <img src="assets/images/techops.jpg" alt="Profile" class="profile-pic" width="120" height="120">
+        <div>
+  <h2>Your DevOps Command Center 🖥️ ⚡</h2>
+  <p>
+    ZeroOps is your go-to hub for mastering DevOps interviews.  
+    Our mission is simple: provide daily, real-time interview questions 🖥️ with detailed, easy-to-digest answers to help you stay ahead in the fast-evolving DevOps landscape 🌐.
+  </p>
+  <p>
+    From Linux 🐧 and cloud technologies ☁️ to CI/CD ⚙️, Docker 🐳, Kubernetes ☸️, and security practices 🔒, we cover the topics that matter most for professionals and aspirants alike.  
+    Each question is carefully curated to reflect real-world scenarios and prepare you for the challenges you’ll face in technical interviews 💡.
+  </p>
+  <p>
+    Whether you are starting your career or looking to level up your skills, ZeroOps is designed to keep you sharp ✨, confident, and ready to succeed 🎯.
+  </p>
+</div>
+      </div>
+    </section>
+
+    <!-- Example section: Linux -->
+    <section id="linux" class="section neon-card">
+      <h2>Linux</h2>
+
+      <article class="qa" data-title="Find process on port" data-date="2025-10-19" data-tags="linux,network">
+        <h3 class="q">1) How to find which process is listening on a given port?</h3>
+        <ul class="a">
+          <li>Use <code>ss -tulpn | grep :&lt;port&gt;</code> to list listeners and PIDs.</li>
+          <li>Or <code>lsof -i :&lt;port&gt;</code> to show process and command.</li>
+          <li>Fallback: <code>netstat -tulpn</code> or inspect <code>/proc/net/tcp</code>.</li>
+        </ul>
+      </article>
+
+      <article class="qa" data-title="How to monitor CPU and memory usage in Linux?" data-date="2025-10-19" data-tags="linux,performance,monitoring">
+  <h3 class="q">2) How do you monitor CPU and memory usage in Linux in real-time for performance troubleshooting?</h3>
+  <ul class="a">
+    <li><strong>top command:</strong> Displays real-time CPU, memory, and process usage. Useful for quick checks and sorting processes by CPU or memory.</li>
+    <li><strong>htop command:</strong> Interactive version of top with color-coded display, process tree, and easy sorting. Requires installation on some systems (<code>sudo apt install htop</code>).</li>
+    <li><strong>vmstat:</strong> Provides memory, CPU, swap, and IO statistics. Useful for spotting resource bottlenecks over time.</li>
+    <li><strong>free -m:</strong> Quick check of total, used, and available memory in MB. Can combine with <code>watch free -m</code> to update every few seconds.</li>
+    <li><strong>iostat:</strong> Monitors CPU usage and I/O statistics per device. Helpful for detecting disk bottlenecks.</li>
+    <li><strong>pidstat:</strong> Monitor CPU/memory usage per process over time.</li>
+    <li><strong>practical tip:</strong> For troubleshooting real-time spikes, combine commands like <code>top</code> + <code>vmstat 2 5</code> to correlate CPU and memory spikes with running processes.</li>
+  </ul>
+</article>
+
+</section>
+
+    <!-- Example section: AWS -->
+    <section id="aws" class="section neon-card"><h2>AWS</h2>
+    <article class="qa" data-title="How to design highly available architecture in AWS?" data-date="2025-10-19" data-tags="aws,architecture,high-availability">
+  <h3 class="q">1) How would you design a highly available and fault-tolerant architecture in AWS?</h3>
+  <ul class="a">
+    <li><strong>Multi-AZ Deployment:</strong> Deploy EC2 instances, RDS, and other resources across multiple Availability Zones (AZs) to survive zone failures.</li>
+    <li><strong>Elastic Load Balancer (ELB):</strong> Distribute incoming traffic across multiple instances in different AZs to prevent single-point failure.</li>
+    <li><strong>Auto Scaling Groups (ASG):</strong> Automatically scale EC2 instances up or down based on traffic or CPU/memory thresholds for high availability and cost optimization.</li>
+    <li><strong>RDS Multi-AZ and Read Replicas:</strong> Ensure database high availability with automatic failover and improved read scalability.</li>
+    <li><strong>S3 for Static Assets:</strong> Store static content in S3 with versioning and cross-region replication for durability and disaster recovery.</li>
+    <li><strong>Route 53:</strong> Use DNS-based health checks and routing policies to redirect traffic if an endpoint fails.</li>
+    <li><strong>CloudFront CDN:</strong> Distribute content globally, reduce latency, and add another layer of fault tolerance.</li>
+    <li><strong>Monitoring & Alerts:</strong> Use CloudWatch, CloudTrail, and SNS for proactive monitoring, alarms, and incident response.</li>
+    <li><strong>Security & Backup:</strong> Ensure IAM policies, security groups, regular snapshots, and cross-region backups for resilience and compliance.</li>
+    <li><strong>Practical Tip:</strong> Test failover scenarios regularly to ensure your architecture actually handles AZ or regional outages effectively.</li>
+  </ul>
+</article>
+
+</section>
+<!-- Example section: Git -->
+    <section id="git" class="section neon-card"><h2>Git</h2>
+    <article class="qa" data-title="How to resolve merge conflicts in Git?" data-date="2025-10-19" data-tags="git,merge,conflicts">
+  <h3 class="q">1) How do you resolve merge conflicts in Git?</h3>
+  <ul class="a">
+    <li><strong>Understand the conflict:</strong> When Git cannot automatically merge files, it marks the conflict areas in the files using <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers.</li>
+    <li><strong>Check the status:</strong> Run <code>git status</code> to see which files are conflicted.</li>
+    <li><strong>Open conflicted files:</strong> Review the conflicting changes between your branch and the branch you are merging.</li>
+    <li><strong>Manual resolution:</strong> Edit the file to choose the correct code, remove conflict markers, and ensure the final code works.</li>
+    <li><strong>Add resolved files:</strong> Run <code>git add &lt;file&gt;</code> for each resolved file.</li>
+    <li><strong>Commit the merge:</strong> After resolving all conflicts, run <code>git commit</code> to complete the merge.</li>
+    <li><strong>Use mergetool (optional):</strong> Run <code>git mergetool</code> to visually resolve conflicts using GUI tools.</li>
+    <li><strong>Practical tip:</strong> Communicate with your team if conflicts are complex. Always test your code after resolving conflicts before pushing.</li>
+  </ul>
+</article>
+
+</section>
+<!-- Example section: Jenkis -->
+    <section id="jenkins" class="section neon-card"><h2>Jenkins</h2>
+    <article class="qa" data-title="How to implement CI/CD pipelines in Jenkins?" data-date="2025-10-19" data-tags="jenkins,ci,cicd,pipelines">
+  <h3 class="q">1) How do you implement CI/CD pipelines in Jenkins?</h3>
+  <ul class="a">
+    <li><strong>Set up Jenkins:</strong> Install Jenkins on a server or use Jenkins in Docker. Configure necessary plugins for Git, Docker, AWS, etc.</li>
+    <li><strong>Create a Pipeline Job:</strong> Use either Freestyle project or Declarative Pipeline with a Jenkinsfile stored in your source code repository.</li>
+    <li><strong>Define stages:</strong> Common stages include: <code>Checkout</code> (pull code from Git), <code>Build</code> (compile/package), <code>Test</code> (unit/integration tests), <code>Deploy</code> (push to dev/test/prod).</li>
+    <li><strong>Integrate version control:</strong> Connect Jenkins to GitHub, GitLab, or Bitbucket so pipelines trigger automatically on commits or pull requests.</li>
+    <li><strong>Use agents:</strong> Run jobs on dedicated agents for scalability and resource isolation.</li>
+    <li><strong>Automate notifications:</strong> Configure email, Slack, or Teams notifications for build success/failure.</li>
+    <li><strong>Secure credentials:</strong> Use Jenkins Credentials plugin for storing sensitive information (API keys, passwords) securely.</li>
+    <li><strong>Practical tip:</strong> Test pipelines on a staging environment first. Start simple and gradually add complex steps like parallel builds, approvals, or dynamic parameters.</li>
+  </ul>
+</article>
+    
+</section>
+<!-- Example section: Docker -->
+    <section id="docker" class="section neon-card"><h2>Docker</h2>
+        <article class="qa" data-title="How to manage Docker containers efficiently?" data-date="2025-10-19" data-tags="docker,containers,devops">
+  <h3 class="q">1) How do you manage Docker containers efficiently in a production environment?</h3>
+  <ul class="a">
+    <li><strong>Use Docker Compose for multi-container apps:</strong> Define services, networks, and volumes in a <code>docker-compose.yml</code> file for easy orchestration.</li>
+    <li><strong>Keep images lightweight:</strong> Use minimal base images (e.g., Alpine) and multi-stage builds to reduce image size and startup time.</li>
+    <li><strong>Tag images clearly:</strong> Use semantic versioning (e.g., v1.0.0) and <code>latest</code> tags for easy rollback and tracking.</li>
+    <li><strong>Monitor container resources:</strong> Use <code>docker stats</code> or integrate Prometheus + Grafana for real-time CPU, memory, and network monitoring.</li>
+    <li><strong>Use volumes for persistent data:</strong> Avoid storing data inside containers; mount volumes or use managed storage for durability.</li>
+    <li><strong>Automate builds and deployments:</strong> Integrate Docker builds into CI/CD pipelines using Jenkins, GitHub Actions, or GitLab CI.</li>
+    <li><strong>Practical tip:</strong> Regularly prune unused containers, images, and networks with <code>docker system prune</code> to keep your host clean and efficient.</li>
+  </ul>
+</article>
+    
+</section>
+<!-- Example section: kubernetes -->
+    <section id="k8s" class="section neon-card"><h2>Kubernetes</h2>
+        <article class="qa" data-title="How to deploy applications in Kubernetes?" data-date="2025-10-19" data-tags="kubernetes,containers,orchestration">
+  <h3 class="q">1) How do you deploy and manage applications in Kubernetes efficiently?</h3>
+  <ul class="a">
+    <li><strong>Use Deployment objects:</strong> Define your application replicas, container image, and update strategy in a <code>Deployment</code> manifest.</li>
+    <li><strong>Namespace organization:</strong> Isolate environments or teams using namespaces to avoid resource conflicts.</li>
+    <li><strong>Service exposure:</strong> Use <code>Service</code> objects to expose your pods internally (ClusterIP) or externally (LoadBalancer/NodePort).</li>
+    <li><strong>ConfigMaps & Secrets:</strong> Store configuration and sensitive data outside containers and mount them into pods.</li>
+    <li><strong>Horizontal Pod Autoscaler (HPA):</strong> Automatically scale pods based on CPU/memory or custom metrics to handle variable workloads.</li>
+    <li><strong>Rolling updates & rollbacks:</strong> Use deployment strategies to update applications with zero downtime and roll back if failures occur.</li>
+    <li><strong>Monitor & logging:</strong> Integrate Prometheus, Grafana, and EFK (Elasticsearch, Fluentd, Kibana) for cluster monitoring and centralized logging.</li>
+    <li><strong>Practical tip:</strong> Test manifests in a staging namespace before production deployment and use <code>kubectl diff</code> to preview changes.</li>
+  </ul>
+</article>
+
+</section>
+<!-- Example section: CICD -->
+    <section id="cicd" class="section neon-card"><h2>CI/CD</h2>
+        <article class="qa" data-title="How to implement a CI/CD pipeline?" data-date="2025-10-19" data-tags="cicd,devops,pipeline">
+  <h3 class="q">1) How do you implement a CI/CD pipeline effectively?</h3>
+  <ul class="a">
+    <li><strong>Continuous Integration (CI):</strong> Automate code builds and tests whenever a developer commits code to the repository. Tools: Jenkins, GitHub Actions, GitLab CI.</li>
+    <li><strong>Continuous Delivery (CD):</strong> Automatically deploy code to staging or pre-production environments after successful builds and tests.</li>
+    <li><strong>Continuous Deployment:</strong> Fully automated deployment to production after passing all tests and quality checks.</li>
+    <li><strong>Version control integration:</strong> Use Git branches and pull requests to trigger pipelines and ensure code quality.</li>
+    <li><strong>Automated testing:</strong> Include unit tests, integration tests, and static code analysis to catch bugs early.</li>
+    <li><strong>Infrastructure as Code (IaC):</strong> Use Terraform, CloudFormation, or Ansible to manage environment setup consistently.</li>
+    <li><strong>Monitoring & rollback:</strong> Integrate alerts and automated rollback in case of deployment failures.</li>
+    <li><strong>Practical tip:</strong> Start small with CI/CD on critical services, gradually expand, and maintain clear pipeline documentation for the team.</li>
+  </ul>
+</article>
+
+</section>
+<!-- Example section: DevSecOps -->
+    <section id="devsecops" class="section neon-card"><h2>DevSecOps</h2>
+     <article class="qa" data-title="How to integrate security in DevOps pipeline?" data-date="2025-10-19" data-tags="devsecops,security,devops">
+  <h3 class="q">1) How do you integrate security into a DevOps pipeline (DevSecOps)?</h3>
+  <ul class="a">
+    <li><strong>Shift-left security:</strong> Integrate security checks early in the development cycle rather than waiting for deployment.</li>
+    <li><strong>Static Application Security Testing (SAST):</strong> Automatically scan source code for vulnerabilities during CI builds.</li>
+    <li><strong>Dynamic Application Security Testing (DAST):</strong> Perform runtime security testing on deployed applications to find weaknesses.</li>
+    <li><strong>Container & image scanning:</strong> Scan Docker images with tools like Trivy or Clair for vulnerabilities before deployment.</li>
+    <li><strong>Infrastructure as Code security:</strong> Scan Terraform, CloudFormation, or Ansible scripts using tools like Checkov or TFSec.</li>
+    <li><strong>Secrets management:</strong> Use vaults or secret managers instead of hardcoding credentials in code or config files.</li>
+    <li><strong>Compliance checks:</strong> Automate policy checks for security, compliance, and best practices using tools like Open Policy Agent (OPA).</li>
+    <li><strong>Monitoring & incident response:</strong> Integrate security alerts into monitoring dashboards and incident workflows.</li>
+    <li><strong>Practical tip:</strong> Automate as much as possible, but review critical security findings manually to ensure proper mitigation.</li>
+  </ul>
+</article>
+
+    </section>
+<!-- Example section: Terraform -->
+    <section id="terraform" class="section neon-card"><h2>Terraform</h2>
+    <article class="qa" data-title="How to manage infrastructure with Terraform?" data-date="2025-10-19" data-tags="terraform,iac,devops">
+  <h3 class="q">1) How do you manage infrastructure efficiently using Terraform?</h3>
+  <ul class="a">
+    <li><strong>Infrastructure as Code (IaC):</strong> Define your cloud resources declaratively in <code>.tf</code> files for version control and reproducibility.</li>
+    <li><strong>State management:</strong> Store Terraform state securely using remote backends like S3 with DynamoDB locking to prevent conflicts.</li>
+    <li><strong>Modules:</strong> Use reusable modules to standardize infrastructure patterns and simplify complex deployments.</li>
+    <li><strong>Plan and apply:</strong> Always run <code>terraform plan</code> to preview changes before applying with <code>terraform apply</code>.</li>
+    <li><strong>Version control integration:</strong> Keep Terraform files in Git and use CI/CD pipelines for automated deployments.</li>
+    <li><strong>Environment separation:</strong> Use workspaces or separate state files for dev, staging, and production environments.</li>
+    <li><strong>Testing & validation:</strong> Use <code>terraform validate</code> and tools like Terratest to ensure infrastructure correctness.</li>
+    <li><strong>Practical tip:</strong> Document modules and maintain naming conventions to make infrastructure easy to manage and troubleshoot.</li>
+  </ul>
+</article>
+
+</section>
+<!-- Example section: Common generic -->
+    <section id="common" class="section neon-card"><h2>Generic DevOps Interview Questions</h2>
+    <article class="qa" data-title="Common DevOps roles and responsibilities" data-date="2025-10-19" data-tags="devops,generic,roles,responsibilities">
+  <h3 class="q">1) What are the common roles, responsibilities, and day-to-day tasks of a DevOps engineer?</h3>
+  <ul class="a">
+    <li><strong>Roles of a DevOps Engineer:</strong> Bridge between development and operations, ensuring continuous integration, delivery, and system reliability.</li>
+    <li><strong>Infrastructure management:</strong> Provision and manage cloud/on-prem resources using IaC tools like Terraform, Ansible, or CloudFormation.</li>
+    <li><strong>CI/CD pipelines:</strong> Set up, maintain, and monitor automated pipelines for build, test, and deployment of applications.</li>
+    <li><strong>Monitoring & alerting:</strong> Implement monitoring solutions (Prometheus, Grafana, ELK, CloudWatch) and respond to alerts for system performance or failures.</li>
+    <li><strong>Collaboration:</strong> Work closely with development teams to ensure smooth releases, code quality, and adherence to best practices.</li>
+    <li><strong>Security & compliance:</strong> Ensure security practices are integrated into the pipeline (DevSecOps) and maintain compliance with organizational policies.</li>
+    <li><strong>Troubleshooting:</strong> Debug production issues, investigate root causes, and apply fixes while documenting processes.</li>
+    <li><strong>Automation:</strong> Automate repetitive operational tasks and scripts to increase efficiency and reduce human errors.</li>
+    <li><strong>Documentation:</strong> Maintain clear documentation of systems, pipelines, and processes for team knowledge sharing.</li>
+    <li><strong>Practical tip:</strong> A DevOps engineer often wears multiple hats; focus on collaboration, automation, and proactive monitoring to succeed in interviews and real-life scenarios.</li>
+  </ul>
+</article>
+
+</section>
+<!-- Example section: System Design -->
+    <section id="sysdesign" class="section neon-card"><h2>System Design</h2>
+<article class="qa" data-title="Design a scalable URL shortening service" data-date="2025-10-19" data-tags="system-design,scalability,architecture">
+  <h3 class="q">How would you design a scalable URL shortening service like Bitly?</h3>
+  <ul class="a">
+    <li><strong>Requirements gathering:</strong> Identify functional requirements (shorten URL, redirect, analytics) and non-functional requirements (high availability, low latency, scalability).</li>
+    <li><strong>High-level architecture:</strong> Client → API Gateway → Application servers → Database → Caching layer → Analytics system.</li>
+    <li><strong>Database design:</strong> Use a relational database (MySQL/PostgreSQL) or NoSQL (DynamoDB, MongoDB) to store mappings between short and long URLs.</li>
+    <li><strong>Key generation:</strong> Generate unique short keys using Base62 encoding, UUIDs, or hash functions. Ensure collision handling and uniform distribution.</li>
+    <li><strong>Caching:</strong> Use Redis or Memcached to store frequently accessed URLs for faster redirection.</li>
+    <li><strong>Load balancing:</strong> Use ELB or Nginx to distribute traffic across multiple application servers.</li>
+    <li><strong>Analytics & metrics:</strong> Track click counts, geographic data, user agents, etc., using a separate data pipeline and storage system.</li>
+    <li><strong>Scalability:</strong> Partition databases using sharding, replicate read-heavy data, and deploy multiple stateless application servers.</li>
+    <li><strong>Reliability & fault tolerance:</strong> Implement multi-AZ deployment, automated backups, and monitoring with alerts for failures.</li>
+    <li><strong>Practical tip:</strong> Start with a simple prototype, then optimize bottlenecks in database, caching, and network layers as traffic grows.</li>
+  </ul>
+</article>
+    
+</section>
+<!-- Contact Section -->
+    <section id="contact" class="section neon-card contact">
+  <h2>Connect With Me !</h2>
+  <div class="contact-grid">
+    <!-- Left: Bio -->
+    <div class="bio">
+      <img src="assets/images/profile.jpg" alt="Profile" class="contact-pic">
+      <p><strong>Sainath Shivaji Mitalakar</strong></p>
+      <p>Senior DevOps Engineer</p>
+    </div>
+
+    <!-- Center / Right: Links -->
+    <div class="links">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/sainathmitalakar" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://topmate.io/sainathmitalakar" target="_blank" rel="noopener">Topmate</a></li>
+        <li><a href="https://www.instagram.com/sainathmitalakar_27" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://x.com/saimitalakar" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+
+    <!-- New Quote Div -->
+   <div class="right-placeholder">
+  <p> 💡 If you FAIL, never give up because F.A.I.L. means "First Attempt in Learning". END is not the end; in fact E.N.D. means "Effort Never Dies". If you get NO as an answer, remember N.O. means "Next Opportunity". All Birds find shelter during a rain. But Eagle avoids rain by flying above the Clouds.- DR. A.P.J. Abdul Kalam</p>
+</div>
+
+</section>
+
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p>“Code, Deploy, Automate, Repeat 🔄” - ZeroOps</p>
+    <p>© <span id="year"></span> <a href="https://sainathmitalakar.github.io/" target="_blank" rel="noopener">Sainath S Mitalakar</a></p>
+  </div>
+</footer>
+
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+:root {
+  --bg: #05060a;
+  --card: #071025;
+  --muted: #9aa7b2;
+  --neon: #00e5ff;
+  --accent: #4dd2ff;
+  --glass: rgba(255, 255, 255, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: radial-gradient(
+      ellipse at 20% 10%,
+      rgba(0, 229, 255, 0.06),
+      transparent 20%
+    ),
+    var(--bg);
+  color: #e6f7ff;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(77, 210, 255, 0.05);
+  z-index: 40;
+  background: var(--bg);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 48px;
+}
+
+.site-title {
+  font-size: 18px;
+  color: var(--neon);
+  letter-spacing: 0.6px;
+}
+
+.top-nav a {
+  margin-left: 12px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.top-nav a:hover {
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 229, 255, 0.06),
+    rgba(77, 210, 255, 0.02)
+  );
+  box-shadow: 0 4px 18px rgba(0, 229, 255, 0.06);
+}
+
+.section {
+  padding: 28px 0;
+}
+
+.neon-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(0, 229, 255, 0.06);
+  box-shadow: 0 8px 40px rgba(0, 229, 255, 0.02);
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+h2 {
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.about-inner {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.profile-pic {
+  border-radius: 10px;
+  border: 1px solid rgba(77, 210, 255, 0.12);
+}
+
+.qa {
+  margin: 12px 0;
+  padding: 14px;
+  border-left: 3px solid var(--neon);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.02), transparent);
+}
+
+.qa .q {
+  margin-bottom: 8px;
+  color: #dffaff;
+}
+
+.qa .a {
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, "Roboto Mono", monospace;
+}
+
+.contact-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.contact-pic {
+  width: 140px;
+  border-radius: 8px;
+  border: 1px solid rgba(77, 210, 255, 0.08);
+}
+
+.site-footer {
+  padding: 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  border-top: 1px solid rgba(77, 210, 255, 0.05);
+}
+
+@media (max-width: 900px) {
+  .top-nav {
+    display: flex;
+    overflow-x: auto;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* Neon hover effect for nav links */
+.top-nav a {
+  transition: all 0.3s ease;
+  position: relative;
+}
+.top-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: var(--neon);
+  transition: width 0.3s ease;
+}
+.top-nav a:hover::after {
+  width: 100%;
+}
+
+/* Card glow effect */
+.neon-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.neon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--neon), 0 0 40px var(--accent);
+}
+
+/* Section glow on scroll */
+.section {
+  transition: box-shadow 0.4s ease, border 0.4s ease;
+}
+.section.in-view {
+  box-shadow: 0 0 30px var(--neon);
+  border: 1px solid var(--accent);
+}
+/* Fix nav link scroll offset for sticky header */
+.section {
+  scroll-margin-top: 80px; /* height of your sticky header */
+}
