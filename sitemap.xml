@@ -13,5 +13,8 @@
   <url><loc>https://USERNAME.github.io/#terraform</loc><priority>0.6</priority></url>
   <url><loc>https://USERNAME.github.io/#common</loc><priority>0.6</priority></url>
   <url><loc>https://USERNAME.github.io/#sysdesign</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#azure</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#gcp</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#commands</loc><priority>0.6</priority></url>
   <url><loc>https://USERNAME.github.io/#contact</loc><priority>0.6</priority></url>
 </urlset>
