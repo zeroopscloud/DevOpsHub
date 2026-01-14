@@ -1270,23 +1270,23 @@ spec:
 
         <li>4️⃣ <strong>Real-Time Example:</strong>
           <pre><code>Developer commits code → GitHub triggers Jenkins CI pipeline →
-✅ Code built and tested →
-🚀 Docker image pushed to registry →
-☁️ Deployed automatically to Kubernetes (CD)</code></pre>
+ Code built and tested →
+ Docker image pushed to registry →
+ Deployed automatically to Kubernetes (CD)</code></pre>
           <li>"So CI ensures your build is always stable, and CD ensures your users always get the latest version automatically."</li>
         </li>
 
         <li>5️⃣ <strong>Benefits:</strong>
           <ul>
-            <li>🚀 Faster release cycles</li>
-            <li>🧪 Early bug detection</li>
-            <li>💡 Improved developer collaboration</li>
-            <li>🛡️ Consistent, reliable deployments</li>
-            <li>📈 Reduced manual effort & deployment risks</li>
+            <li> Faster release cycles</li>
+            <li> Early bug detection</li>
+            <li> Improved developer collaboration</li>
+            <li> Consistent, reliable deployments</li>
+            <li>Reduced manual effort & deployment risks</li>
           </ul>
         </li>
 
-        <li>🧠 <strong>In Short:</strong>
+        <li> <strong>In Short:</strong>
           <ul>
             <li>CI → Automates build & test process after every commit 🧩</li>
             <li>CD → Automates delivery/deployment to production 🚀</li>
@@ -1304,7 +1304,7 @@ spec:
       <ul>
         <li>"In DevOps, CI/CD is all about automating the path from code commit to production while maintaining quality and speed ⚡🚀."</li>
         
-        <li>"Step 1: <strong>Continuous Delivery (CD)</strong> 📦:
+        <li>"Step 1: <strong>Continuous Delivery (CD)</strong> :
           <ul>
             <li>Continuous Delivery ensures that your code is always in a deployable state after passing automated tests ✅.</li>
             <li>Deployments to production are manual but can be triggered anytime with confidence 🎯.</li>
@@ -1342,8 +1342,8 @@ pipeline {
         
         <li>"Step 2: <strong>Continuous Deployment</strong> 🚀:
           <ul>
-            <li>Continuous Deployment goes one step further: every code change that passes automated tests is automatically deployed to production ⚡.</li>
-            <li>No human intervention is needed unless a failure occurs 🔄.</li>
+            <li>Continuous Deployment goes one step further: every code change that passes automated tests is automatically deployed to production .</li>
+            <li>No human intervention is needed unless a failure occurs .</li>
             <li><strong>Example Pipeline:</strong> Same pipeline as above, but without the manual approval step:</li>
             <pre><code class="bash">pipeline {
   agent any
@@ -1368,9 +1368,9 @@ pipeline {
         
         <li>"Step 3: <strong>Key Differences</strong> ⚡:
           <ul>
-            <li>Continuous Delivery: Manual production deployment ✅, always deployable 💾.</li>
-            <li>Continuous Deployment: Automatic production deployment 🔄, fully automated pipeline 🚀.</li>
-            <li>Both require robust automated testing and monitoring to ensure safe releases 🛡️📊.</li>
+            <li>Continuous Delivery: Manual production deployment , always deployable .</li>
+            <li>Continuous Deployment: Automatic production deployment , fully automated pipeline .</li>
+            <li>Both require robust automated testing and monitoring to ensure safe releases .</li>
           </ul>
         </li>
         
@@ -1426,26 +1426,26 @@ pipeline {
 
         <li>4️⃣ <strong>Real-Time Example:</strong>
           <pre><code>Developer commits code → CI pipeline triggers build & tests →
-✅ Static code analysis & security scan (DevSecOps) →
-🚀 Docker image pushed to registry →
-☁️ Deployed automatically to Kubernetes</code></pre>
+Static code analysis & security scan (DevSecOps) →
+Docker image pushed to registry →
+Deployed automatically to Kubernetes</code></pre>
           <li>"So security issues are caught early → fewer risks in production. It ensures faster delivery without compromising security."</li>
         </li>
 
         <li>5️⃣ <strong>Benefits of DevSecOps:</strong>
           <ul>
-            <li>🛡️ Early vulnerability detection</li>
-            <li>🔄 Continuous security integration</li>
-            <li>🚀 Faster, secure releases</li>
-            <li>💡 Better collaboration between dev, ops & security teams</li>
-            <li>📉 Reduced risk of security breaches in production</li>
+            <li> Early vulnerability detection</li>
+            <li> Continuous security integration</li>
+            <li> Faster, secure releases</li>
+            <li> Better collaboration between dev, ops & security teams</li>
+            <li> Reduced risk of security breaches in production</li>
           </ul>
         </li>
 
-        <li>🧠 <strong>In Short:</strong>
+        <li><strong>In Short:</strong>
           <ul>
-            <li>DevOps → Automates build, test, and deployment ⚡</li>
-            <li>DevSecOps → Adds security into the DevOps workflow 🛡️</li>
+            <li>DevOps → Automates build, test, and deployment </li>
+            <li>DevSecOps → Adds security into the DevOps workflow </li>
             <li>Together, they ensure fast, reliable, and secure software delivery 🔄</li>
           </ul>
         </li>
@@ -1458,11 +1458,11 @@ pipeline {
   <ul class="a">
     <li><strong>Interview-Style Answer:</strong>
       <ul>
-        <li>"In DevSecOps, I treat security as code from the very beginning 🔒💻. The goal is to detect vulnerabilities early and prevent risky code from reaching production 🚀."</li>
+        <li>"In DevSecOps, I treat security as code from the very beginning . The goal is to detect vulnerabilities early and prevent risky code from reaching production 🚀."</li>
         
-        <li>"Step 1: <strong>Static Application Security Testing (SAST)</strong> 🧐:
+        <li>"Step 1: <strong>Static Application Security Testing (SAST)</strong> :
           <ul>
-            <li>Use tools like SonarQube, Checkmarx, or Snyk to analyze source code for common vulnerabilities such as SQL injection, XSS, or hard-coded secrets 🛡️.</li>
+            <li>Use tools like SonarQube, Checkmarx, or Snyk to analyze source code for common vulnerabilities such as SQL injection, XSS, or hard-coded secrets .</li>
             <li><strong>Example:</strong> Integrating Snyk into a CI pipeline:</li>
             <pre><code class="bash"># GitHub Actions example for Snyk
 name: SAST Scan
@@ -1482,13 +1482,13 @@ jobs:
           args: test --all-projects
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}</code></pre>
-            <li>"This automatically scans the code whenever we push to main and fails the build if vulnerabilities are found ⚠️."</li>
+            <li>"This automatically scans the code whenever we push to main and fails the build if vulnerabilities are found ."</li>
           </ul>
         </li>
         
-        <li>"Step 2: <strong>Software Composition Analysis (SCA)</strong> 📦:
+        <li>"Step 2: <strong>Software Composition Analysis (SCA)</strong> :
           <ul>
-            <li>Check third-party libraries and dependencies for known vulnerabilities using tools like OWASP Dependency-Check or Snyk 🛠️.</li>
+            <li>Check third-party libraries and dependencies for known vulnerabilities using tools like OWASP Dependency-Check or Snyk .</li>
             <li>Example: In Node.js projects, run:</li>
             <pre><code class="bash">npm audit
 # or integrate in CI/CD
@@ -1497,25 +1497,25 @@ npm audit --audit-level=high</code></pre>
           </ul>
         </li>
         
-        <li>"Step 3: <strong>Container Security</strong> 🐳:
+        <li>"Step 3: <strong>Container Security</strong> :
           <ul>
-            <li>Scan Docker images for vulnerabilities using tools like Trivy, Clair, or Aqua Security 🔍.</li>
+            <li>Scan Docker images for vulnerabilities using tools like Trivy, Clair, or Aqua Security .</li>
             <li>Example Trivy scan in CI pipeline:</li>
             <pre><code class="bash">trivy image myapp:${GIT_COMMIT}</code></pre>
-            <li>"This ensures the container image does not contain known CVEs before deployment 🔐."</li>
+            <li>"This ensures the container image does not contain known CVEs before deployment ."</li>
           </ul>
         </li>
         
-        <li>"Step 4: <strong>Dynamic Application Security Testing (DAST)</strong> 🌐:
+        <li>"Step 4: <strong>Dynamic Application Security Testing (DAST)</strong> :
           <ul>
-            <li>Run automated tools like OWASP ZAP or Burp Suite against running applications to detect runtime vulnerabilities 🛡️.</li>
-            <li>"This helps catch issues not visible in static analysis, like broken access control or injection flaws 🚨."</li>
+            <li>Run automated tools like OWASP ZAP or Burp Suite against running applications to detect runtime vulnerabilities .</li>
+            <li>"This helps catch issues not visible in static analysis, like broken access control or injection flaws ."</li>
           </ul>
         </li>
         
         <li>"Step 5: <strong>Integrate Security in CI/CD</strong> ⚡:
           <ul>
-            <li>Automate all security scans in CI/CD pipelines so that code cannot be deployed if vulnerabilities exceed a threshold 🔄.</li>
+            <li>Automate all security scans in CI/CD pipelines so that code cannot be deployed if vulnerabilities exceed a threshold .</li>
             <li>"For example, a Jenkins pipeline stage for security scanning might look like this:</li>
             <pre><code class="bash">stage('Security Scan') {
   steps {
@@ -1523,18 +1523,18 @@ npm audit --audit-level=high</code></pre>
     sh 'trivy image myapp:${GIT_COMMIT}'
   }
 }</code></pre>
-            <li>"This ensures vulnerabilities are caught early, and developers get immediate feedback 📝."</li>
+            <li>"This ensures vulnerabilities are caught early, and developers get immediate feedback ."</li>
           </ul>
         </li>
         
-        <li>"Step 6: <strong>Continuous Monitoring & Alerts</strong> 📊:
+        <li>"Step 6: <strong>Continuous Monitoring & Alerts</strong> :
           <ul>
-            <li>Set up automated alerts for new vulnerabilities in production using monitoring tools like Prisma Cloud, Falco, or AWS Inspector ☁️.</li>
-            <li>"This closes the loop and ensures continuous security vigilance 🔒."</li>
+            <li>Set up automated alerts for new vulnerabilities in production using monitoring tools like Prisma Cloud, Falco, or AWS Inspector .</li>
+            <li>"This closes the loop and ensures continuous security vigilance ."</li>
           </ul>
         </li>
         
-        <li>"In short, my approach is: <strong>shift-left security → automate scans → block vulnerable code → monitor continuously</strong> 🛡️⚡. This keeps development fast without compromising security 🚀💻."</li>
+        <li>"In short, my approach is: <strong>shift-left security → automate scans → block vulnerable code → monitor continuously</strong> . This keeps development fast without compromising security 🚀💻."</li>
       </ul>
     </li>
   </ul>
@@ -1573,9 +1573,9 @@ npm audit --audit-level=high</code></pre>
             </li>
             <li>Benefits:
               <ul>
-                <li>✅ Prevents concurrent modifications</li>
-                <li>✅ Centralized storage for team collaboration</li>
-                <li>✅ Provides versioning and rollback capability</li>
+                <li>Prevents concurrent modifications</li>
+                <li>Centralized storage for team collaboration</li>
+                <li>Provides versioning and rollback capability</li>
               </ul>
             </li>
           </ul>
@@ -1611,7 +1611,7 @@ npm audit --audit-level=high</code></pre>
           </ul>
         </li>
 
-        <li>🧠 <strong>In Short:</strong>
+        <li> <strong>In Short:</strong>
           <ul>
             <li>Local state → Simple, but limited for teams 🏠</li>
             <li>Remote state → Centralized, secure, and collaborative ☁️</li>
@@ -1640,16 +1640,16 @@ npm audit --audit-level=high</code></pre>
         <li>"Step 2: <strong>Detecting drift</strong> 🔍:
           <ul>
             <li>"When you run <code>terraform plan</code>, Terraform compares the actual infrastructure with the state file."</li>
-            <li>"It will show a difference and propose changes to bring the infrastructure back in sync with the IaC definition ⚡."</li>
+            <li>"It will show a difference and propose changes to bring the infrastructure back in sync with the IaC definition ."</li>
             <li><strong>Example:</strong></li>
             <pre><code class="bash"># Terraform plan output
 ~ aws_instance.myserver
     instance_type: "t2.micro" => "t2.small"</code></pre>
-            <li>"This means Terraform detected the manual change and plans to revert it to what’s defined in your configuration 🔄."</li>
+            <li>"This means Terraform detected the manual change and plans to revert it to what’s defined in your configuration ."</li>
           </ul>
         </li>
 
-        <li>"Step 3: <strong>Handling manual changes</strong> 🛠️:
+        <li>"Step 3: <strong>Handling manual changes</strong> :
           <ul>
             <li>"Option 1: Accept the change in Terraform state using <code>terraform import</code> or <code>terraform state</code> commands 📝."</li>
             <li>"Option 2: Let Terraform overwrite the manual change during the next <code>terraform apply</code> ⚠️. This ensures consistency but may impact running workloads."</li>
@@ -1657,21 +1657,21 @@ npm audit --audit-level=high</code></pre>
           </ul>
         </li>
 
-        <li>"Step 4: <strong>Preventing drift</strong> 🛡️:
+        <li>"Step 4: <strong>Preventing drift</strong> :
           <ul>
-            <li>"Enable IAM policies to restrict direct console changes and use automation pipelines for all changes 🌐."</li>
+            <li>"Enable IAM policies to restrict direct console changes and use automation pipelines for all changes ."</li>
             <li>"Use Terraform Cloud/Enterprise with policy enforcement or CI/CD pipelines to ensure Terraform always manages resources 🔐."</li>
           </ul>
         </li>
 
-        <li>"Step 5: <strong>Conclusion</strong> 📜:
+        <li>"Step 5: <strong>Conclusion</strong> :
           <ul>
             <li>"Terraform will always try to reconcile the actual infrastructure to match the declared state. Manual changes are detected as drift and can be either reverted or imported into Terraform 🔄."</li>
             <li>"In short, in Terraform, <strong>the code is king</strong>. Any manual change will be noticed, but it’s better to manage all changes through Terraform to maintain reliability and auditability 💻🌱."</li>
           </ul>
         </li>
 
-        <li>"TL;DR: Manual changes cause <em>drift</em> 🔍, <code>terraform plan</code> detects it ⚡, and <code>terraform apply</code> can revert it unless you explicitly import or adjust the state 🛠️."</li>
+        <li>"TL;DR: Manual changes cause <em>drift</em> , <code>terraform plan</code> detects it ⚡, and <code>terraform apply</code> can revert it unless you explicitly import or adjust the state 🛠️."</li>
       </ul>
     </li>
   </ul>
@@ -1687,13 +1687,13 @@ npm audit --audit-level=high</code></pre>
     <li><strong>Interview-Style Answer:</strong>
       <ul>
         <li>"In my DevOps projects, I have worked with a combination of tools covering the entire software delivery lifecycle 🚀."</li>
-        <li>"For <strong>version control and collaboration</strong>, I used Git along with GitHub/GitLab for source code management 📝, and Jira & Confluence for tracking tasks and documentation 📊."</li>
+        <li>"For <strong>version control and collaboration</strong>, I used Git along with GitHub/GitLab for source code management , and Jira & Confluence for tracking tasks and documentation 📊."</li>
         <li>"In terms of <strong>CI/CD and automation</strong>, I have hands-on experience with Jenkins, GitHub Actions, and GitLab CI to automate build, test, and deployment pipelines ⚙️. I have also used Terraform and Ansible for Infrastructure as Code and configuration management 💻."</li>
-        <li>"For <strong>containerization and orchestration</strong>, I mainly used Docker to containerize applications 🐳 and Kubernetes for orchestrating containers across environments ☁️."</li>
-        <li>"Regarding <strong>cloud platforms</strong>, I have deployed infrastructure on AWS and Azure 🌐, using services like EC2, S3, RDS, Lambda, and IAM 🔑."</li>
-        <li>"For <strong>monitoring and logging</strong>, I have used Prometheus, Grafana, and ELK stack to monitor application performance 📈, visualize metrics, and troubleshoot issues 🛠️."</li>
-        <li>"On the <strong>security and DevSecOps</strong> side, I have integrated tools like SonarQube, Snyk, and HashiCorp Vault into pipelines 🔒 for vulnerability scanning, code quality checks, and secret management."</li>
-        <li>"Lastly, I regularly use scripting languages like Bash and Python 🐍 to automate tasks, write deployment scripts, and manage infrastructure efficiently."</li>
+        <li>"For <strong>containerization and orchestration</strong>, I mainly used Docker to containerize applications  and Kubernetes for orchestrating containers across environments ☁️."</li>
+        <li>"Regarding <strong>cloud platforms</strong>, I have deployed infrastructure on AWS and Azure , using services like EC2, S3, RDS, Lambda, and IAM ."</li>
+        <li>"For <strong>monitoring and logging</strong>, I have used Prometheus, Grafana, and ELK stack to monitor application performance , visualize metrics, and troubleshoot issues 🛠️."</li>
+        <li>"On the <strong>security and DevSecOps</strong> side, I have integrated tools like SonarQube, Snyk, and HashiCorp Vault into pipelines  for vulnerability scanning, code quality checks, and secret management."</li>
+        <li>"Lastly, I regularly use scripting languages like Bash and Python to automate tasks, write deployment scripts, and manage infrastructure efficiently."</li>
         <li>"So overall, my approach is to combine these tools to ensure <strong>fast, reliable, and secure software delivery</strong> ⚡ while maintaining good collaboration between development, operations, and security teams 🤝."</li>
       </ul>
     </li>
@@ -1720,9 +1720,9 @@ npm audit --audit-level=high</code></pre>
           </ul>
         </li>
 
-        <li>"Step 3: <strong>Auto-scaling & Serverless</strong> ☁️:
+        <li>"Step 3: <strong>Auto-scaling & Serverless</strong> :
           <ul>
-            <li>"I implement auto-scaling groups in AWS, Azure Scale Sets, or GCP Instance Groups to match compute capacity to actual demand ⬆️⬇️."</li>
+            <li>"I implement auto-scaling groups in AWS, Azure Scale Sets, or GCP Instance Groups to match compute capacity to actual demand ."</li>
             <li>"For workloads with unpredictable traffic, I use serverless services like AWS Lambda, Azure Functions, or GCP Cloud Functions to pay only for actual usage ⚡."</li>
           </ul>
         </li>
