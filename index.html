@@ -1087,9 +1087,9 @@ kubectl describe pod &lt;pod-name&gt;</code></pre>
 
         <li>"To fix it, I usually update the deployment with the correct env or config values 🛠️, adjust probe thresholds or temporarily disable them to test 🧪, increase memory or CPU limits 💾, and sometimes I run the container locally using <code>docker run</code> to reproduce the crash 🐳."</li>
 
-        <li>🔹 <strong>ImagePullBackOff 🐳</strong> → "This happens when Kubernetes can’t pull the container image. I start by describing the pod:
+        <li>🔹 <strong>ImagePullBackOff </strong> → "This happens when Kubernetes can’t pull the container image. I start by describing the pod:
           <pre><code>kubectl describe pod &lt;pod-name&gt;</code></pre>
-          "Then I check if there’s a typo in the image name or tag, private repo access issues 🔑, rate limits ⏱️, or cluster DNS/network issues 🌐."</li>
+          "Then I check if there’s a typo in the image name or tag, private repo access issues , rate limits ⏱, or cluster DNS/network issues 🌐."</li>
 
         <li>"If it’s a private repo, I create a secret like this:
           <pre><code>kubectl create secret docker-registry regcred \
@@ -1100,14 +1100,14 @@ kubectl describe pod &lt;pod-name&gt;</code></pre>
           "And then I link it in the Pod spec:
           <pre><code>imagePullSecrets:
   - name: regcred</code></pre>
-          "After that, I retry the deployment 🔄."</li>
+          "After that, I retry the deployment ."</li>
 
         <li>🔹 <strong>Commands I rely on:</strong>
           <ul>
-            <li><code>kubectl describe pod &lt;pod&gt;</code> → to check events 📝</li>
-            <li><code>kubectl logs &lt;pod&gt; --previous</code> → to see crash logs 🐛</li>
-            <li><code>kubectl get events --sort-by=.metadata.creationTimestamp</code> → timeline of events ⏱️</li>
-            <li><code>kubectl get pods -o wide</code> → node info and scheduling 🌐</li>
+            <li><code>kubectl describe pod &lt;pod&gt;</code> → to check events </li>
+            <li><code>kubectl logs &lt;pod&gt; --previous</code> → to see crash logs </li>
+            <li><code>kubectl get events --sort-by=.metadata.creationTimestamp</code> → timeline of events ⏱</li>
+            <li><code>kubectl get pods -o wide</code> → node info and scheduling </li>
           </ul>
         </li>
 
