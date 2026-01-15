@@ -1,138 +1,137 @@
-<!-- ========================================================= -->
-<!-- 🔍 SEO + Structured Data (Invisible to GitHub Rendering) -->
-<!-- ========================================================= -->
-<!--
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "DevOpsHub",
-  "description": "Interactive DevOps & SRE interview preparation platform with real-world scenarios.",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Web, iOS, Android",
-  "creator": {
-    "@type": "Organization",
-    "name": "ZeroOps"
-  }
-}
--->
-
-<div align="center">
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=28&duration=2500&pause=800&color=00FFAA&center=true&vCenter=true&width=600&lines=DevOpsHub;Real-World+DevOps+%26+SRE+Prep;Build.+Break.+Fix.+Repeat." />
-
-<br/>
+<!-- ===================================================== -->
+<!--                  DevOpsHub README                     -->
+<!-- ===================================================== -->
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Building%20In%20Public-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Platform-Web%20|%20iOS%20|%20Android-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Open%20Source-Yes-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Built%20By-ZeroOps-black?style=for-the-badge" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" width="60"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" width="60"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" width="60"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/aws/aws-original.svg" width="60"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" width="60"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" width="60"/>
 </p>
 
-</div>
+<h1 align="center">🚀 DevOpsHub</h1>
+
+<h3 align="center">
+Your daily dose of <b>DevOps & SRE</b> interview prep and real-world engineering.
+</h3>
+
+<p align="center">
+  <i>Practice. Build. Think like a Production Engineer.</i>
+</p>
+
+<p align="center">
+  <b>Web App:</b> Live (Private) &nbsp;|&nbsp;
+  <b>Mobile:</b> iOS & Android (In Progress)
+</p>
 
 ---
 
-## 🌐 What is DevOpsHub?
+## 🌍 What is DevOpsHub?
 
-**DevOpsHub** is an **interactive learning playground** for **DevOps & SRE interview preparation**, focused on **real-time, production-inspired scenarios**.
+**DevOpsHub** is an **interactive learning and practice platform** designed to turn  
+**DevOps learners into real-world professionals**.
 
-This is not just Q&A.  
-This is **how systems fail, recover, and scale in real life**.
+This is **not just theory**.  
+This is **hands-on, scenario-driven, production-minded DevOps**.
 
-> _Train like you’re already on-call._
+Built by **ZeroOps**, DevOpsHub focuses on how **modern DevOps & SRE teams actually work**.
 
 ---
 
-## 🧠 What We’re Building
+## 🧠 What You’ll Learn & Practice
 
-DevOpsHub brings together **hands-on practice**, **system thinking**, and **interview readiness** in one platform.
+✔ Real interview-level concepts  
+✔ Production-like workflows  
+✔ Cloud & automation thinking  
+✔ System design mindset  
 
-### Core Focus Areas
-- 🐧 **Linux** (commands, logs, processes, troubleshooting)
-- ☁️ **Cloud** (AWS primary, Azure & GCP expanding)
-- 🌱 **Git & GitHub** (real workflows, PRs, reviews)
-- 🔄 **CI/CD** (Jenkins, pipelines, failures & rollbacks)
-- 🐳 **Docker & Kubernetes**
+### 🔧 Core Focus Areas
+
+- 🐧 **Linux Fundamentals**
+- 🌱 **Git & GitHub**
+- ☁️ **AWS, Azure & GCP**
+- 🧩 **CI/CD Pipelines**
+- ⚙️ **Jenkins**
+- 📦 **Docker**
+- ☸️ **Kubernetes**
 - 🔐 **DevSecOps**
-- 🏗 **Terraform & Infrastructure as Code**
-- 🧠 **System Design**
-- ❓ **Generic DevOps Interview Scenarios**
+- 🏗 **Terraform & IaC**
+- 🧠 **System Design for DevOps**
+- ❓ **Generic DevOps Interview Questions**
+- 🚀 **Real-Time Production Scenarios**
 
-> More tools and real-world challenges are continuously added.
+…and **many more tools coming soon**.
 
 ---
 
-## 🏗 Platform Status
+## 🎯 Why DevOpsHub Exists
 
-```text
-🟢 Web App       → Live (Internal / Not Yet Published)
-🟡 iOS App       → In Progress
-🟡 Android App   → In Progress
-🟡 Content Labs  → Actively Growing
-DevOpsHub is being built step by step, in public, with a strong focus on quality over hype.
+Most platforms:
+- Teach tools ❌  
+- Ignore real scenarios ❌  
 
-⚙️ Tech & Tooling Landscape
-🧰 Core Technologies
-<p align="center"> <img src="https://skillicons.dev/icons?i=linux,git,github,aws,azure,gcp,docker,kubernetes,jenkins,terraform" /> </p>
-🔐 DevSecOps & Observability
-<p align="center"> <img src="https://skillicons.dev/icons?i=grafana,prometheus" /> <img src="https://img.shields.io/badge/OpenTelemetry-683D87?style=for-the-badge&logo=opentelemetry&logoColor=white" /> <img src="https://img.shields.io/badge/Trivy-7B42BC?style=for-the-badge" /> </p>
-🤖 AI-Driven Learning Vision
-DevOpsHub is evolving towards:
+**DevOpsHub:**
+- Teaches **thinking like a DevOps Engineer** ✅  
+- Focuses on **decision-making, trade-offs & failures** ✅  
+- Prepares you for **real interviews + real jobs** ✅  
 
-AI-assisted interview simulations
+---
 
-Scenario-based decision making
+## 🧑‍🤝‍🧑 For Contributors
 
-Real-time feedback loops
-
-Adaptive difficulty paths
-
-AI assists — fundamentals decide.
-
-🤝 Open Source & Community
-DevOpsHub is community-powered.
+This is an **open, collaborative initiative**.
 
 We welcome contributors who:
+- Want to give back to the DevOps community
+- Believe in practical, hands-on learning
+- Want to build something meaningful, not noisy
 
-Want real DevOps exposure
+### 📌 Contributor Expectations
+Before contributing, be comfortable with:
+- Linux basics & terminal usage
+- Git & GitHub workflows
+- At least one cloud provider (AWS preferred)
 
-Believe in learning by doing
+👉 Detailed contributor guide is available in the **GitHub Wiki**.
 
-Care about clarity, not shortcuts
+---
 
-Before contributing, ensure:
+## 🛠 Project Status
 
-Linux fundamentals are clear
+| Component | Status |
+|--------|--------|
+| Web App | 🟢 Live (Private Access) |
+| iOS App | 🟡 In Progress |
+| Android App | 🟡 In Progress |
+| Content Expansion | 🟢 Ongoing |
+| Community Contributions | 🟢 Open |
 
-Git & GitHub workflows are known
+---
 
-Cloud basics are understood
+## 🌱 Vision
 
-📘 See Contributor Guide in the Wiki.
+> **Build engineers who can survive production, not just interviews.**
 
-📡 Digital Activity Pulse
-<p align="center"> <img src="https://readme-typing-svg.herokuapp.com?font=Share+Tech+Mono&size=20&duration=2500&pause=800&color=00FF99&center=true&vCenter=true&width=600&lines=Booting+DevOpsHub...;Loading+Real-World+Scenarios...;Syncing+Cloud+Signals...;Pipelines+Online+🟢" /> </p>
-🧭 Vision
-DevOpsHub exists to:
+DevOpsHub aims to become a **go-to playground** for:
+- Aspiring DevOps Engineers
+- SREs
+- Cloud Engineers
+- Platform Engineers
 
-Reduce fake confidence
+---
 
-Increase real readiness
+## 🤝 Powered By
 
-Turn learners into professionals
+<p align="center">
+  <b>ZeroOps</b><br/>
+  <i>Engineering with purpose. Automation with discipline.</i>
+</p>
 
-Build engineers who understand why, not just how
+---
 
-❤️ Built by ZeroOps
-DevOpsHub is built by ZeroOps with a simple belief:
-
-Strong fundamentals + real scenarios = real engineers
-
-If this project resonates with you, ⭐ the repository and build with us.
-
-<div align="center">
-Build like it’s production
-Think like it’s on-call
-Learn like it’s real
-</div> ```
+<p align="center">
+  ⭐ If this project resonates with you, consider starring the repo<br/>
+  🚀 Let’s build the future of DevOps learning — together
+</p>
