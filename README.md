@@ -1,3 +1,24 @@
+<!-- ================== AI Chat Intro Section ================== -->
+<div align="center">
+
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=28&duration=2500&pause=800&color=000000&center=true&vCenter=true&width=700&lines=Welcome+to+DevOpsHub;AI-Powered+DevOps+%26+SRE+Learning;Built+for+Real-World+Engineers;By+Sainath+Mitalakar" alt="Typing SVG" />
+
+  <br><br>
+
+  <p align="center">
+    <b>Interactive DevOps • Cloud • SRE • System Design</b><br/>
+    <i>Learn. Practice. Think like Production.</i>
+  </p>
+
+  <br>
+
+  <a href="https://github.com/sainathmitalakar" target="_blank">
+    <img src="https://img.shields.io/badge/Founder-GitHub-000000?style=for-the-badge&logo=github&logoColor=white" alt="Founder GitHub" />
+  </a>
+
+</div>
+<!-- ============================================================ -->
+
 <!-- ===================================================== -->
 <!--                  DevOpsHub README                     -->
 <!-- ===================================================== -->
