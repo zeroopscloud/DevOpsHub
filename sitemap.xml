@@ -8,6 +8,7 @@
   <url><loc>https://USERNAME.github.io/#jenkins</loc><priority>0.6</priority></url>
   <url><loc>https://USERNAME.github.io/#docker</loc><priority>0.6</priority></url>
   <url><loc>https://USERNAME.github.io/#k8s</loc><priority>0.6</priority></url>
+  <url><loc>https://USERNAME.github.io/#kubernetes</loc><priority>0.6</priority></url>
   <url><loc>https://USERNAME.github.io/#cicd</loc><priority>0.6</priority></url>
   <url><loc>https://USERNAME.github.io/#devsecops</loc><priority>0.6</priority></url>
   <url><loc>https://USERNAME.github.io/#terraform</loc><priority>0.6</priority></url>
