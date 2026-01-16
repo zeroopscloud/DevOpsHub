@@ -1124,37 +1124,59 @@ resources:
     memory: "512Mi"
   limits:
     memory: "1Gi"
+    
+<section id="kubernetes" class="section neon-card">
+  <article class="qa" data-title="Kubernetes Pod Failure Troubleshooting" data-date="2025-10-20" data-tags="kubernetes,devops,containers">
+    <h3 class="q">1) How do you troubleshoot a Pod stuck in CrashLoopBackOff or ImagePullBackOff?</h3>
+    <ul class="a">
+      <li><strong>Answer:</strong>
+        <ul>
+          <li><strong>CrashLoopBackOff:</strong>
+            <ul>
+              <li>Indicates that the container starts and crashes repeatedly.</li>
+              <li>Common causes include application errors, incorrect commands, or missing environment variables.</li>
+              <li>Use the following commands to diagnose:</li>
+            </ul>
+            <pre><code class="bash">kubectl describe pod &lt;pod-name&gt;
+kubectl logs &lt;pod-name&gt;</code></pre>
+          </li>
 
-# Restart deployment
-kubectl rollout restart deploy myapp
-# Pod should now move to Running ✅</code></pre>
-        </li>
+          <li><strong>ImagePullBackOff:</strong>
+            <ul>
+              <li>Occurs when Kubernetes cannot pull the container image.</li>
+              <li>Common causes include incorrect image name, missing image tag, or registry authentication issues.</li>
+              <li>Verify image availability and credentials.</li>
+            </ul>
+          </li>
 
-        <li>🧠 <strong>In Short:</strong>
-          <ul>
-            <li>CrashLoopBackOff → usually an app or config issue 🔁</li>
-            <li>ImagePullBackOff → image not accessible or misconfigured 🐳</li>
-            <li>Using <code>kubectl describe</code> and <code>logs</code> helps me pinpoint the root cause quickly ⚡</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</article>
-<article class="qa" data-title="Kubernetes DaemonSet vs Deployment with Examples" data-date="2025-10-21" data-tags="kubernetes,containers,devops,ci/cd,orchestration,cloud">
-  <h3 class="q">2) What do you understand by <code>DaemonSet</code> and <code>Deployment</code> in Kubernetes?</h3>
-  <ul class="a">
-    <li><strong>Interview-Style Answer:</strong>
-      <ul>
-        <li>"In Kubernetes, knowing when to use a <code>Deployment</code> vs a <code>DaemonSet</code> is key for orchestrating workloads efficiently 🐝☁️."</li>
-        
-        <li>"Step 1: <strong>Deployment</strong> 🎯:
-          <ul>
-            <li>Used for stateless applications where you need a specific number of replicas 💻.</li>
-            <li>Supports scaling, rolling updates, and rollbacks automatically 🔄.</li>
-            <li><strong>Example: A web application with 3 replicas:</strong></li>
-          </ul>
-          <pre><code class="yaml">apiVersion: apps/v1
+          <li><strong>Resolution:</strong>
+            <pre><code class="bash">kubectl rollout restart deploy myapp</code></pre>
+            <p>Once corrected, the Pod should transition to the Running state.</p>
+          </li>
+
+          <li><strong>Summary:</strong>
+            <ul>
+              <li>CrashLoopBackOff usually indicates an application or configuration issue.</li>
+              <li>ImagePullBackOff indicates an image access or registry problem.</li>
+              <li><code>kubectl describe</code> and <code>kubectl logs</code> are primary troubleshooting tools.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+
+  <article class="qa" data-title="Kubernetes DaemonSet vs Deployment" data-date="2025-10-21" data-tags="kubernetes,containers,devops">
+    <h3 class="q">2) What is the difference between a DaemonSet and a Deployment?</h3>
+    <ul class="a">
+      <li><strong>Answer:</strong>
+        <ul>
+          <li><strong>Deployment:</strong>
+            <ul>
+              <li>Used for stateless applications that require a defined number of replicas.</li>
+              <li>Supports scaling, rolling updates, and rollbacks.</li>
+            </ul>
+            <pre><code class="yaml">apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-app-deployment
@@ -1172,20 +1194,15 @@ spec:
       - name: web-app
         image: nginx:latest
         ports:
-        - containerPort: 80
-</code></pre>
-          <ul>
-            <li>"This ensures 3 pods of <code>nginx</code> are running, automatically replaced if one fails ⚡."</li>
-          </ul>
-        </li>
-        
-        <li>"Step 2: <strong>DaemonSet</strong> 🐝:
-          <ul>
-            <li>Ensures that a pod runs on <strong>every node</strong> in the cluster 🖥️🖥️.</li>
-            <li>Perfect for logging, monitoring, or networking agents 🚀.</li>
-            <li><strong>Example: Deploying a Fluentd logging agent on all nodes:</strong></li>
-          </ul>
-          <pre><code class="yaml">apiVersion: apps/v1
+        - containerPort: 80</code></pre>
+          </li>
+
+          <li><strong>DaemonSet:</strong>
+            <ul>
+              <li>Ensures one Pod runs on every node in the cluster.</li>
+              <li>Commonly used for logging, monitoring, and networking agents.</li>
+            </ul>
+            <pre><code class="yaml">apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: fluentd-daemonset
@@ -1204,189 +1221,67 @@ spec:
         resources:
           limits:
             memory: 200Mi
-            cpu: 200m
-</code></pre>
-          <ul>
-            <li>"A pod of Fluentd will automatically run on every node to collect logs 📊."</li>
-            <li>"If a new node is added, DaemonSet schedules the Fluentd pod there automatically 🔄."</li>
-          </ul>
-        </li>
-        
-        <li>"Step 3: <strong>Key Differences</strong> ⚡:
-          <ul>
-            <li><strong>Scope:</strong> Deployment → desired replicas, DaemonSet → one pod per node 🕒.</li>
-            <li><strong>Use-case:</strong> Deployment → apps like APIs or web servers, DaemonSet → node-level agents like logging or monitoring 🛠️.</li>
-            <li><strong>Updates:</strong> Deployment supports rolling updates easily; DaemonSet updates node pods with rolling updates manually or via strategies 🔄.</li>
-          </ul>
-        </li>
-        
-        <li>"Step 4: <strong>Pro Tip</strong> 💡:
-          <ul>
-            <li>Use Deployment for scalable apps 🌐.</li>
-            <li>Use DaemonSet for cluster-wide node services like monitoring or security agents 🔐.</li>
-            <li>Combine both for full observability and high availability ⚡🐝."</li>
-          </ul>
-        </li>
-        
-        <li>"In short, <strong>Deployment scales your app; DaemonSet ensures a pod runs on every node</strong>. Both are foundational for orchestrating workloads efficiently in Kubernetes ☁️🚀."</li>
-      </ul>
-    </li>
-  </ul>
-</article>
+            cpu: 200m</code></pre>
+          </li>
 
-
-
+          <li><strong>Key Differences:</strong>
+            <ul>
+              <li>Deployment manages replica count; DaemonSet ensures node-level coverage.</li>
+              <li>Deployments are suited for applications; DaemonSets are suited for infrastructure services.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
 </section>
-<!-- Example section: CICD -->
-    <section id="cicd" class="section neon-card"><h2>CI/CD</h2>
-       <article class="qa" data-title="Understanding CI/CD" data-date="2025-10-19" data-tags="cicd,devops,pipelines,automation,builds,deployments">
-  <h3 class="q">1) What do you understand by <code>CI/CD</code>?</h3>
-  <ul class="a">
-    <li><strong>Interview-Style Answer :</strong>
-      <ul>
-        <li>"So, CI/CD stands for <strong>Continuous Integration</strong> and <strong>Continuous Deployment or Delivery</strong>. It’s basically a DevOps practice that automates the entire process of building, testing, and deploying applications ⚡ — which ensures faster, reliable, and consistent software delivery."</li>
 
-        <li>1️⃣ <strong>Continuous Integration (CI) 🧩</strong>
-          <ul>
-            <li>"In CI, developers frequently push code changes to a shared repo like GitHub or GitLab. Every commit automatically triggers a build process, runs unit and integration tests, and performs static code analysis."</li>
-            <li>"The goal here is to detect bugs early and maintain a stable main branch at all times 💻."</li>
-            <li>"Common tools I use: Jenkins, GitHub Actions, GitLab CI, CircleCI."</li>
-          </ul>
-        </li>
+<section id="cicd" class="section neon-card">
+  <h2>CI/CD</h2>
 
-        <li>2️⃣ <strong>Continuous Delivery (CD) 🚀</strong>
-          <ul>
-            <li>"Continuous Delivery ensures that every successful build from CI is automatically packaged and ready to deploy to staging or production. There might still be a manual approval step before deployment."</li>
-            <li>"Goal: Make sure the code can be deployed safely and quickly whenever needed 🛡️."</li>
-          </ul>
-        </li>
+  <article class="qa" data-title="Understanding CI/CD" data-date="2025-10-19" data-tags="cicd,devops">
+    <h3 class="q">1) What is CI/CD?</h3>
+    <ul class="a">
+      <li><strong>Answer:</strong>
+        <ul>
+          <li><strong>Continuous Integration (CI):</strong>
+            <ul>
+              <li>Developers frequently commit code to a shared repository.</li>
+              <li>Each commit triggers automated builds and tests.</li>
+              <li>Ensures early bug detection and stable codebases.</li>
+            </ul>
+          </li>
 
-        <li>3️⃣ <strong>Continuous Deployment (CD) ☁️</strong>
-          <ul>
-            <li>"Continuous Deployment takes it one step further — every change that passes all tests is automatically deployed to production, without any human intervention."</li>
-            <li>"Goal: Achieve full automation and faster feedback from end users ⚡."</li>
-          </ul>
-        </li>
+          <li><strong>Continuous Delivery:</strong>
+            <ul>
+              <li>Ensures code is always in a deployable state.</li>
+              <li>Production deployment requires manual approval.</li>
+            </ul>
+          </li>
 
-        <li>4️⃣ <strong>Real-Time Example:</strong>
-          <pre><code>Developer commits code → GitHub triggers Jenkins CI pipeline →
- Code built and tested →
- Docker image pushed to registry →
- Deployed automatically to Kubernetes (CD)</code></pre>
-          <li>"So CI ensures your build is always stable, and CD ensures your users always get the latest version automatically."</li>
-        </li>
+          <li><strong>Continuous Deployment:</strong>
+            <ul>
+              <li>Automatically deploys every successful build to production.</li>
+              <li>Requires strong automated testing and monitoring.</li>
+            </ul>
+          </li>
 
-        <li>5️⃣ <strong>Benefits:</strong>
-          <ul>
-            <li> Faster release cycles</li>
-            <li> Early bug detection</li>
-            <li> Improved developer collaboration</li>
-            <li> Consistent, reliable deployments</li>
-            <li>Reduced manual effort & deployment risks</li>
-          </ul>
-        </li>
+          <li><strong>Example Pipeline:</strong>
+            <pre><code>Commit → Build → Test → Package → Deploy</code></pre>
+          </li>
 
-        <li> <strong>In Short:</strong>
-          <ul>
-            <li>CI → Automates build & test process after every commit 🧩</li>
-            <li>CD → Automates delivery/deployment to production 🚀</li>
-            <li>Together, they form the backbone of modern DevOps workflows 🔄</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</article>
-<article class="qa" data-title="Continuous Delivery vs Continuous Deployment" data-date="2025-10-21" data-tags="ci/cd,devops,automation,pipelines,continuous-integration">
-  <h3 class="q">2) Explain <code>Continuous Delivery</code> and <code>Continuous Deployment</code>.</h3>
-  <ul class="a">
-    <li><strong>Interview-Style Answer:</strong>
-      <ul>
-        <li>"In DevOps, CI/CD is all about automating the path from code commit to production while maintaining quality and speed ⚡🚀."</li>
-        
-        <li>"Step 1: <strong>Continuous Delivery (CD)</strong> :
-          <ul>
-            <li>Continuous Delivery ensures that your code is always in a deployable state after passing automated tests ✅.</li>
-            <li>Deployments to production are manual but can be triggered anytime with confidence 🎯.</li>
-            <li><strong>Example Pipeline:</strong> Developers push code → CI builds and runs tests → Artifacts stored in registry → Ready for deployment.</li>
-            <pre><code class="bash"># Simplified Jenkins Pipeline Example
-pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        sh 'mvn clean package'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh 'mvn test'
-      }
-    }
-    stage('Publish Artifact') {
-      steps {
-        archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
-      }
-    }
-    stage('Manual Deployment') {
-      steps {
-        input 'Approve deployment to production?'
-        sh 'kubectl apply -f k8s/deployment.yaml'
-      }
-    }
-  }
-}</code></pre>
-            <li>"Notice the <code>input</code> step 🔒 – it pauses pipeline until a human approves deployment, ensuring control over production releases."</li>
-          </ul>
-        </li>
-        
-        <li>"Step 2: <strong>Continuous Deployment</strong> 🚀:
-          <ul>
-            <li>Continuous Deployment goes one step further: every code change that passes automated tests is automatically deployed to production .</li>
-            <li>No human intervention is needed unless a failure occurs .</li>
-            <li><strong>Example Pipeline:</strong> Same pipeline as above, but without the manual approval step:</li>
-            <pre><code class="bash">pipeline {
-  agent any
-  stages {
-    stage('Build & Test') {
-      steps {
-        sh 'mvn clean package && mvn test'
-      }
-    }
-    stage('Publish & Deploy') {
-      steps {
-        sh 'docker build -t myapp:${GIT_COMMIT} .'
-        sh 'docker push myapp:${GIT_COMMIT}'
-        sh 'kubectl set image deployment/web-app web-app=myapp:${GIT_COMMIT} --record'
-      }
-    }
-  }
-}</code></pre>
-            <li>"Here, code flows from commit → build → test → deploy automatically, giving instant feedback and faster delivery ⏱️🔥."</li>
-          </ul>
-        </li>
-        
-        <li>"Step 3: <strong>Key Differences</strong> ⚡:
-          <ul>
-            <li>Continuous Delivery: Manual production deployment , always deployable .</li>
-            <li>Continuous Deployment: Automatic production deployment , fully automated pipeline .</li>
-            <li>Both require robust automated testing and monitoring to ensure safe releases .</li>
-          </ul>
-        </li>
-        
-        <li>"Step 4: <strong>Pro Tip</strong> 💡:
-          <ul>
-            <li>Use Continuous Delivery when production is sensitive or requires approvals 🛠️.</li>
-            <li>Use Continuous Deployment for mature, high-trust environments with strong automated tests ⚡☁️.</li>
-          </ul>
-        </li>
-        
-        <li>"In short, Continuous Delivery ensures <strong>deployable code</strong> at any time, while Continuous Deployment takes it further and <strong>deploys automatically</strong>. Both accelerate release cycles and improve reliability 🚀🤝."</li>
-      </ul>
-    </li>
-  </ul>
-</article>
-
+          <li><strong>Benefits:</strong>
+            <ul>
+              <li>Faster release cycles</li>
+              <li>Early bug detection</li>
+              <li>Consistent and reliable deployments</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+</section>
 
 
 </section>
