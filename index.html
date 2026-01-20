@@ -1067,116 +1067,121 @@ CMD ["Hello from CMD with ENTRYPOINT"]
 
     
 </section>
-<!-- Example section: kubernetes -->
-    <section id="k8s" class="section neon-card"><h2>Kubernetes</h2>
-        <article class="qa" data-title="Kubernetes Pod Troubleshooting" data-date="2025-10-19" data-tags="kubernetes,devops,pods,troubleshooting,crashloopbackoff,imagepullbackoff">
-  <h3 class="q">1) How do you troubleshoot <code>CrashLoopBackOff</code> or <code>ImagePullBackOff</code> errors in Kubernetes?</h3>
-  <ul class="a">
-    <li><strong>Interview-Style Answer :</strong>
-      <ul>
-        <li>"So, whenever I see a Pod in <code>CrashLoopBackOff</code> or <code>ImagePullBackOff</code>, I follow a structured approach . First, I check the pod status and events to get a sense of what's happening."</li>
+<!-- Kubernetes Section -->
+<section id="k8s" class="section neon-card">
+  <h2>Kubernetes</h2>
 
-        <li> <strong>CrashLoopBackOff </strong> → "This basically means the container is starting but keeps crashing repeatedly. My first step is to run:
+  <!-- Q1 -->
+  <article class="qa"
+           data-title="Kubernetes Pod Troubleshooting"
+           data-date="2025-10-19"
+           data-tags="kubernetes,devops,pods,troubleshooting,crashloopbackoff,imagepullbackoff">
+
+    <h3 class="q">
+      1) How do you troubleshoot <code>CrashLoopBackOff</code> or
+      <code>ImagePullBackOff</code> errors in Kubernetes?
+    </h3>
+
+    <div class="a">
+      <div>
+        <strong>Interview-Style Answer:</strong>
+
+        <div>
+          “Whenever I see a Pod in <code>CrashLoopBackOff</code> or
+          <code>ImagePullBackOff</code>, I follow a structured approach.
+          First, I check pod status and events.”
+        </div>
+
+        <div>
+          <strong>CrashLoopBackOff:</strong>
+          <p>This means the container starts but keeps crashing.</p>
+
           <pre><code>kubectl get pods
 kubectl describe pod &lt;pod-name&gt;</code></pre>
-          "This gives me the pod events and recent status changes. Then I look at the container logs to see why it’s crashing:
+
           <pre><code>kubectl logs &lt;pod-name&gt; --previous</code></pre>
-        </li>
+        </div>
 
-        <li>"In my experience, the usual causes are application crashes like null pointer exceptions or port conflicts , missing environment variables or ConfigMaps , misconfigured liveness/health probes , or hitting resource limits like OOMKilled ."</li>
+        <div>
+          Common causes include application crashes, missing environment
+          variables or ConfigMaps, misconfigured probes, or OOMKilled events.
+        </div>
 
-        <li>"To fix it, I usually update the deployment with the correct env or config values ️, adjust probe thresholds or temporarily disable them to test , increase memory or CPU limits , and sometimes I run the container locally using <code>docker run</code> to reproduce the crash ."</li>
+        <div>
+          Fixes usually involve correcting configs, adjusting probes,
+          increasing resource limits, or testing the container locally.
+        </div>
 
-        <li> <strong>ImagePullBackOff </strong> → "This happens when Kubernetes can’t pull the container image. I start by describing the pod:
+        <div>
+          <strong>ImagePullBackOff:</strong>
+          <p>Occurs when Kubernetes cannot pull the image.</p>
+
           <pre><code>kubectl describe pod &lt;pod-name&gt;</code></pre>
-          "Then I check if there’s a typo in the image name or tag, private repo access issues , rate limits , or cluster DNS/network issues ."</li>
+        </div>
 
-        <li>"If it’s a private repo, I create a secret like this:
+        <div>
+          For private registries:
           <pre><code>kubectl create secret docker-registry regcred \
 --docker-server=&lt;registry&gt; \
 --docker-username=&lt;user&gt; \
 --docker-password=&lt;password&gt; \
 --docker-email=&lt;email&gt;</code></pre>
-          "And then I link it in the Pod spec:
+
           <pre><code>imagePullSecrets:
   - name: regcred</code></pre>
-          "After that, I retry the deployment ."</li>
+        </div>
 
-        <li> <strong>Commands I rely on:</strong>
+        <div>
+          <strong>Commands I rely on:</strong>
           <ul>
-            <li><code>kubectl describe pod &lt;pod&gt;</code> → to check events </li>
-            <li><code>kubectl logs &lt;pod&gt; --previous</code> → to see crash logs </li>
-            <li><code>kubectl get events --sort-by=.metadata.creationTimestamp</code> → timeline of events </li>
-            <li><code>kubectl get pods -o wide</code> → node info and scheduling </li>
+            <li><code>kubectl describe pod &lt;pod&gt;</code></li>
+            <li><code>kubectl logs &lt;pod&gt; --previous</code></li>
+            <li><code>kubectl get events --sort-by=.metadata.creationTimestamp</code></li>
+            <li><code>kubectl get pods -o wide</code></li>
           </ul>
-        </li>
+        </div>
 
-        <li> <strong>Real-Time Scenario Example:</strong>
+        <div>
+          <strong>Real-Time Scenario Example:</strong>
           <pre><code>Pod: myapp-7f9c8d9b7b-abcde
 Status: CrashLoopBackOff
 Reason: OOMKilled
 
 # Fix
 kubectl edit deploy myapp
-# Increase memory limits
+
 resources:
   requests:
     memory: "512Mi"
   limits:
-    memory: "1Gi"
-
-<section id="kubernetes" class="section neon-card">
-  <article class="qa" data-title="Kubernetes Pod Failure Troubleshooting" data-date="2025-10-20" data-tags="kubernetes,devops,containers">
-    <h3 class="q">1) How do you troubleshoot a Pod stuck in CrashLoopBackOff or ImagePullBackOff?</h3>
-    <ul class="a">
-      <li><strong>Answer:</strong>
-        <ul>
-          <li><strong>CrashLoopBackOff:</strong>
-            <ul>
-              <li>Indicates that the container starts and crashes repeatedly.</li>
-              <li>Common causes include application errors, incorrect commands, or missing environment variables.</li>
-              <li>Use the following commands to diagnose:</li>
-            </ul>
-            <pre><code class="bash">kubectl describe pod &lt;pod-name&gt;
-kubectl logs &lt;pod-name&gt;</code></pre>
-          </li>
-
-          <li><strong>ImagePullBackOff:</strong>
-            <ul>
-              <li>Occurs when Kubernetes cannot pull the container image.</li>
-              <li>Common causes include incorrect image name, missing image tag, or registry authentication issues.</li>
-              <li>Verify image availability and credentials.</li>
-            </ul>
-          </li>
-
-          <li><strong>Resolution:</strong>
-            <pre><code class="bash">kubectl rollout restart deploy myapp</code></pre>
-            <p>Once corrected, the Pod should transition to the Running state.</p>
-          </li>
-
-          <li><strong>Summary:</strong>
-            <ul>
-              <li>CrashLoopBackOff usually indicates an application or configuration issue.</li>
-              <li>ImagePullBackOff indicates an image access or registry problem.</li>
-              <li><code>kubectl describe</code> and <code>kubectl logs</code> are primary troubleshooting tools.</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    memory: "1Gi"</code></pre>
+        </div>
+      </div>
+    </div>
   </article>
 
-  <article class="qa" data-title="Kubernetes DaemonSet vs Deployment" data-date="2025-10-21" data-tags="kubernetes,containers,devops">
-    <h3 class="q">2) What is the difference between a DaemonSet and a Deployment?</h3>
-    <ul class="a">
-      <li><strong>Answer:</strong>
-        <ul>
-          <li><strong>Deployment:</strong>
-            <ul>
-              <li>Used for stateless applications that require a defined number of replicas.</li>
-              <li>Supports scaling, rolling updates, and rollbacks.</li>
-            </ul>
-            <pre><code class="yaml">apiVersion: apps/v1
+  <!-- Q2 -->
+  <article class="qa"
+           data-title="Kubernetes DaemonSet vs Deployment"
+           data-date="2025-10-21"
+           data-tags="kubernetes,containers,devops">
+
+    <h3 class="q">
+      2) What is the difference between a DaemonSet and a Deployment?
+    </h3>
+
+    <div class="a">
+      <div>
+        <strong>Answer:</strong>
+
+        <div>
+          <strong>Deployment:</strong>
+          <ul>
+            <li>Used for stateless applications</li>
+            <li>Supports scaling and rolling updates</li>
+          </ul>
+
+          <pre><code class="yaml">apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-app-deployment
@@ -1191,18 +1196,20 @@ spec:
         app: web-app
     spec:
       containers:
-      - name: web-app
-        image: nginx:latest
-        ports:
-        - containerPort: 80</code></pre>
-          </li>
+        - name: web-app
+          image: nginx:latest
+          ports:
+            - containerPort: 80</code></pre>
+        </div>
 
-          <li><strong>DaemonSet:</strong>
-            <ul>
-              <li>Ensures one Pod runs on every node in the cluster.</li>
-              <li>Commonly used for logging, monitoring, and networking agents.</li>
-            </ul>
-            <pre><code class="yaml">apiVersion: apps/v1
+        <div>
+          <strong>DaemonSet:</strong>
+          <ul>
+            <li>Runs one Pod on every node</li>
+            <li>Used for logging, monitoring, networking</li>
+          </ul>
+
+          <pre><code class="yaml">apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: fluentd-daemonset
@@ -1216,72 +1223,17 @@ spec:
         name: fluentd
     spec:
       containers:
-      - name: fluentd
-        image: fluent/fluentd:latest
-        resources:
-          limits:
-            memory: 200Mi
-            cpu: 200m</code></pre>
-          </li>
-
-          <li><strong>Key Differences:</strong>
-            <ul>
-              <li>Deployment manages replica count; DaemonSet ensures node-level coverage.</li>
-              <li>Deployments are suited for applications; DaemonSets are suited for infrastructure services.</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
+        - name: fluentd
+          image: fluent/fluentd:latest
+          resources:
+            limits:
+              memory: 200Mi
+              cpu: 200m</code></pre>
+        </div>
+      </div>
+    </div>
   </article>
-</section>
 
-<section id="cicd" class="section neon-card">
-  <h2>CI/CD</h2>
-
-  <article class="qa" data-title="Understanding CI/CD" data-date="2025-10-19" data-tags="cicd,devops">
-    <h3 class="q">1) What is CI/CD?</h3>
-    <ul class="a">
-      <li><strong>Answer:</strong>
-        <ul>
-          <li><strong>Continuous Integration (CI):</strong>
-            <ul>
-              <li>Developers frequently commit code to a shared repository.</li>
-              <li>Each commit triggers automated builds and tests.</li>
-              <li>Ensures early bug detection and stable codebases.</li>
-            </ul>
-          </li>
-
-          <li><strong>Continuous Delivery:</strong>
-            <ul>
-              <li>Ensures code is always in a deployable state.</li>
-              <li>Production deployment requires manual approval.</li>
-            </ul>
-          </li>
-
-          <li><strong>Continuous Deployment:</strong>
-            <ul>
-              <li>Automatically deploys every successful build to production.</li>
-              <li>Requires strong automated testing and monitoring.</li>
-            </ul>
-          </li>
-
-          <li><strong>Example Pipeline:</strong>
-            <pre><code>Commit → Build → Test → Package → Deploy</code></pre>
-          </li>
-
-          <li><strong>Benefits:</strong>
-            <ul>
-              <li>Faster release cycles</li>
-              <li>Early bug detection</li>
-              <li>Consistent and reliable deployments</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </article>
-</section>
 
 
 </section>
