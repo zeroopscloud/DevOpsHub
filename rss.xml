@@ -204,8 +204,8 @@
   <item>
     <title><![CDATA[Infrastructure as Code in Azure]]></title>
     <link>https://USERNAME.github.io/#azure</link>
-    <guid isPermaLink="false">https://USERNAME.github.io#azure-2026-01-20-Infrastructure%20as%20Code%20in%20Azure</guid>
-    <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://USERNAME.github.io#azure-2026-01-21-Infrastructure%20as%20Code%20in%20Azure</guid>
+    <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[     <h3 class="q">2) How do you manage <code>Infrastructure as Code (IaC)</code> in Azure?</h3>     <ul class="a">       <li><strong>Interview-Style Answer:</strong>         <ul>           <li>“So when I work on Azure infrastructure, I always follow the IaC approach  — every resource like VMs ️, storage accounts , networks , or AKS clusters  is defined as code.”</li>           <li>“Depending on the project, I use:             <ul>               <li><strong>Terraform</strong>  — for multi-cloud or modular setups</li>               <li><strong>Bicep</strong> ️ — native Azure syntax</li>               <li><strong>Ansible</strong>  — for configuration management after provisioning</li>             </ul>             For example, I’ll have Terraform modules for networking, compute, and security, and I’ll keep them all versioned in Git ️.”           </li>           <li>“In the pipeline, I add stages like <code>terraform init</code>, <code>plan</code>, and <code>apply</code> , and store the remote backend in Azure Blob for state locking .”</li>           <li>“This setup ensures every environment — dev, staging, or production — is identical, fully automated, and can be recreated anytime just from code .”</li>         </ul>       </li>     </ul>   ]]></description>
   </item>
   <item>
@@ -218,36 +218,36 @@
   <item>
     <title><![CDATA[GCP IAM and Security Practices]]></title>
     <link>https://USERNAME.github.io/#gcp</link>
-    <guid isPermaLink="false">https://USERNAME.github.io#gcp-2026-01-20-GCP%20IAM%20and%20Security%20Practices</guid>
-    <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://USERNAME.github.io#gcp-2026-01-21-GCP%20IAM%20and%20Security%20Practices</guid>
+    <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[     <h3 class="q">2) What are the best practices for <code>IAM and Security</code> in GCP?</h3>     <ul class="a">       <li><strong>Interview-Style Answer:</strong>         <ul>           <li>“IAM is the foundation  of security in GCP. My first rule: always apply the Principle of Least Privilege ️ — give only what’s necessary.”</li>           <li>“I usually:             <ul>               <li>Create <strong>custom roles</strong> ️ instead of using broad predefined roles.</li>               <li>Use <strong>service accounts</strong>  for automation tasks, not personal credentials.</li>               <li>Enable <strong>VPC Service Controls</strong>  to restrict data movement.</li>               <li>Store secrets in <strong>Secret Manager</strong>  — never in code.</li>             </ul>           </li>           <li>“I turn on <strong>Cloud Audit Logs</strong>  and <strong>Security Command Center</strong> ️ for continuous monitoring.”</li>           <li>“For sensitive workloads, I deploy them on <strong>Shielded VMs</strong> ️ or <strong>Confidential VMs</strong>  to protect against low-level attacks.”</li>           <li>“Layered security: IAM, secrets, network boundaries , monitoring  — ensures continuous compliance and safe deployments .”</li>         </ul>       </li>     </ul>   ]]></description>
   </item>
   <item>
     <title><![CDATA[Linux Commands]]></title>
     <link>https://USERNAME.github.io/#commands</link>
-    <guid isPermaLink="false">https://USERNAME.github.io#commands-2026-01-20-Linux%20Commands</guid>
-    <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://USERNAME.github.io#commands-2026-01-21-Linux%20Commands</guid>
+    <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[     <h3 class="q">Linux Commands </h3>     <ul class="a">       <li><strong>Basic Commands:</strong>         <ul>           <li><code>ls -l</code> ️ List files with details like permissions, owner, and size </li>           <li><code>cd /var/log</code> ️ Navigate to logs directory to check system issues ‍️</li>           <li><code>pwd</code> ️ Print current path to verify your directory ️</li>         </ul>       </li>       <li><strong>Intermediate Commands:</strong>         <ul>           <li><code>grep "ERROR" /var/log/syslog</code> ️ Search logs for specific errors </li>           <li><code>find /home -name "*.conf"</code> ️ Locate configuration files </li>           <li><code>df -h</code> ️ Check disk usage on all mounted drives </li>         </ul>       </li>       <li><strong>Advanced Commands:</strong>         <ul>           <li><code>awk '{print $1, $5}' file.txt</code> ️ Extract columns from files ️</li>           <li><code>sed -i 's/old/new/g' file.txt</code> ️ Replace text inline in files </li>           <li><code>rsync -avz src/ dest/</code> ️ Sync directories efficiently </li>         </ul>       </li>     </ul>   ]]></description>
   </item>
   <item>
     <title><![CDATA[AWS CLI Commands]]></title>
     <link>https://USERNAME.github.io/#commands</link>
-    <guid isPermaLink="false">https://USERNAME.github.io#commands-2026-01-20-AWS%20CLI%20Commands</guid>
-    <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://USERNAME.github.io#commands-2026-01-21-AWS%20CLI%20Commands</guid>
+    <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[     <h3 class="q">AWS CLI Commands ️</h3>     <ul class="a">       <li><strong>Basic Commands:</strong>         <ul>           <li><code>aws s3 ls</code> ️ List all S3 buckets </li>           <li><code>aws ec2 describe-instances</code> ️ Show all EC2 instances with status ️</li>         </ul>       </li>       <li><strong>Intermediate Commands:</strong>         <ul>           <li><code>aws s3 cp file.txt s3://bucket-name/</code> ️ Upload files to S3 </li>           <li><code>aws ec2 start-instances --instance-ids i-0123456789</code> ️ Start a stopped EC2 instance </li>         </ul>       </li>       <li><strong>Advanced Commands:</strong>         <ul>           <li><code>aws ec2 describe-security-groups --group-ids sg-123456</code> ️ Inspect security group rules </li>           <li><code>aws cloudwatch get-metric-statistics --metric-name CPUUtilization --namespace AWS/EC2</code> ️ Fetch CPU metrics for monitoring </li>         </ul>       </li>     </ul>   ]]></description>
   </item>
   <item>
     <title><![CDATA[Git Commands]]></title>
     <link>https://USERNAME.github.io/#commands</link>
-    <guid isPermaLink="false">https://USERNAME.github.io#commands-2026-01-20-Git%20Commands</guid>
-    <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://USERNAME.github.io#commands-2026-01-21-Git%20Commands</guid>
+    <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[     <h3 class="q">Git Commands </h3>     <ul class="a">       <li><strong>Basic Commands:</strong>         <ul>           <li><code>git status</code> ️ Check modified, staged, and untracked files </li>           <li><code>git add file.txt</code> ️ Stage changes for next commit </li>         </ul>       </li>       <li><strong>Intermediate Commands:</strong>         <ul>           <li><code>git commit -m "fix bug"</code> ️ Commit changes with meaningful message ️</li>           <li><code>git fetch</code> ️ Update local metadata from remote </li>         </ul>       </li>       <li><strong>Advanced Commands:</strong>         <ul>           <li><code>git pull --rebase</code> ️ Integrate remote changes cleanly </li>           <li><code>git log --graph --oneline --all</code> ️ Visualize commit history </li>         </ul>       </li>     </ul>   ]]></description>
   </item>
   <item>
     <title><![CDATA[Docker Commands]]></title>
     <link>https://USERNAME.github.io/#commands</link>
-    <guid isPermaLink="false">https://USERNAME.github.io#commands-2026-01-20-Docker%20Commands</guid>
-    <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://USERNAME.github.io#commands-2026-01-21-Docker%20Commands</guid>
+    <pubDate>Wed, 21 Jan 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[     <h3 class="q">Docker Commands </h3>     <ul class="a">       <li><strong>Basic Commands:</strong>         <ul>           <li><code>docker ps</code> ️ List running containers </li>           <li><code>docker images</code> ️ List available images ️</li>         </ul>       </li>       <li><strong>Intermediate Commands:</strong>         <ul>           <li><code>docker build -t myapp:latest .</code> ️ Build image from Dockerfile ️</li>           <li><code>docker run -d -p 8080:80 myapp:latest</code> ️ Run container detached and map ports </li>         </ul>       </li>       <li><strong>Advanced Commands:</strong>         <ul>           <li><code>docker exec -it container_id /bin/bash</code> ️ Enter running container for debugging </li>           <li><code>docker network inspect bridge</code> ️ Inspect container network connectivity </li>         </ul>       </li>     </ul>   ]]></description>
   </item>
 </channel>
