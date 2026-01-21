@@ -155,5 +155,9 @@ DevOpsHub aims to become a **go-to playground** for:
 <p align="center">
   ⭐ If this project resonates with you, consider starring the repo<br/>
   🚀 Let’s build the future of DevOps learning — together
+<<<<<<< HEAD
   ☁️ Building Foundation to Advance
+=======
+  ☁️ Building Foundation to Advance 
+>>>>>>> 30fc1076474a9d72049652f28f3500af60a365ef
 </p>
